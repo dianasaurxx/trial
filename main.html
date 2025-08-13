@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Apology Website</title>
+  <style>
+    body, html {
+      margin: 0; padding: 0; height: 100%;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    #content-frame {
+      width: 100%;
+      height: 100vh;
+      border: none;
+    }
+
+    #music-controls {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Button to play/pause music -->
+  <div id="music-controls">▶️ Play Music</div>
+
+  <!-- Your main content iframe -->
+  <iframe id="content-frame" src="index.html"></iframe>
+
+  <!-- Hidden audio element -->
+  <audio id="bg-music" loop>
+    <source src="background.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const music = document.getElementById('bg-music');
+    const controls = document.getElementById('music-controls');
+
+    controls.addEventListener('click', () => {
+      if (music.paused) {
+        music.play();
+        controls.textContent = '⏸️ Pause Music';
+      } else {
+        music.pause();
+        controls.textContent = '▶️ Play Music';
+      }
+    });
+  </script>
+
+</body>
+</html>

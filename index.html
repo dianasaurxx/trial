@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>regrets</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background: #f1faee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    #typed-text {
+      font-size: 2.5rem;
+      color: #1d3557;
+      margin-bottom: 20px;
+    }
+
+    #typed-text::after {
+      content: '|';
+      animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #457b9d;
+      color: white;
+      text-decoration: none;
+      padding: 12px 24px;
+      margin: 10px;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #1d3557;
+    }
+#subtext {
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+  </style>
+</head>
+<body>
+  <!-- Typing header -->
+  <h1 id="typed-text"></h1>
+<p id="subtext">Please hear me out. </p>
+  <!-- Language buttons -->
+  <div class="buttons">
+    <a href="english.html" class="btn">english</a>
+    <a href="spanish.html" class="btn">español</a>
+  </div>
+
+  <!-- Typing Script -->
+  <script>
+    const text = "I'm sorry, Renato.";
+    const speed = 80; // Speed of typing in ms
+    let i = 0;
+
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("typed-text").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+
+    window.onload = typeWriter;
+  </script>
+</body>
+</html>

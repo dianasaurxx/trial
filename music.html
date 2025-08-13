@@ -1,0 +1,32 @@
+<!-- music.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Music Player</title>
+  <style>
+    body {
+      margin: 0;
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+  <button id="play-btn" style="display:block; margin: 20px auto;">▶️ Play Music</button>
+
+  <audio id="bg-music" loop>
+    <source src="C:\Users\Ruben Cerbo\Documents\diana\Sparks-Coldplay.mp3" type="audio/mpeg" />
+    Your browser does not support the audio tag.
+  </audio>
+
+  <script>
+    const btn = document.getElementById('play-btn');
+    const music = document.getElementById('bg-music');
+
+    btn.addEventListener('click', () => {
+      music.play();
+      btn.style.display = 'none'; // hide the button once playing
+    });
+  </script>
+</body>
+</html>
